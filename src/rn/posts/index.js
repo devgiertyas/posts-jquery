@@ -23,7 +23,7 @@ function construirTabela(posts) {
     var linha = $(`<tr ${posts.id}>`);
     var coluna = "";
 
-    coluna += `<td><button onclick="deletarPost(${post.id})">Deletar</button> <button onclick="atualizarPost(${post.id})">Atualizar</button></td>`;
+    coluna += `<td><button type="button" class="btn btn-danger"onclick="deletarPost(${post.id})">⨉</button> <button type="button" class="btn btn-primary"onclick="atualizarPost(${post.id})">↺</button></td>`;
     coluna += `<td> ${post.id} </td>`;
     coluna += `<td> ${post.title} </td>`;
     coluna += `<td> ${post.categories}</td>`;
@@ -39,14 +39,16 @@ function construirTabela(posts) {
 
 function cadastrarPost() {
 
-  $("#cadastrar-post").css("display", "block")
+  $("#modal-post").css("display", "block")
 
   $("#btnAdicionarPost").css("display", "none")
+
+  resetarCampos();
 
 }
 
 function atualizarPost(idPost) {
-  $("#cadastrar-post").css("display", "block")
+  $("#modal-post").css("display", "block")
 
   $("#btnAdicionarPost").css("display", "none")
 
@@ -71,7 +73,7 @@ function atualizarPost(idPost) {
 }
 
 function voltarPost() {
-  $("#cadastrar-post").css("display", "none")
+  $("#modal-post").css("display", "none")
 
   $("#btnAdicionarPost").css("display", "block")
 }
@@ -182,4 +184,3 @@ function resetarCampos() {
   $("#inputConteudo").val('');
   $("#inputVersao").val(0);
 }
-

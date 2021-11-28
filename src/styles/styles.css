@@ -1,3 +1,36 @@
-.form-post{
+body {
+  margin-top: 30pt;
+}
+
+#navbar-brand {
+  text-align: center;
+}
+
+#titulo-pagina {
+  color: white;
+  text-align: center;
+}
+
+#modal-post {
   display:none;
+}
+
+#div-adicionar {
+  height: 30pt;
+}
+
+button.btn-secondary {
+  border-radius: 20pt;
+}
+
+button.btn-danger {
+  border-radius: 20pt;
+}
+
+button.btn-primary {
+  border-radius: 20pt;
+}
+
+button.btn-success {
+  border-radius: 20pt;
 }

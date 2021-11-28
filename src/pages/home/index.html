@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- Required meta tags -->
@@ -22,43 +22,59 @@
 </head>
 
 <body>
+  <<nav class="navbar fixed-top navbar-dark bg-dark">
+    <h1 class="navbar-brand" >Fixo na parte superior</h1>
+  </nav>
 
   <div class="container">
-
-    <div class="form-post row g-3" id="cadastrar-post">
-      <div class="col-md-6">
-        <label for="idPost" class="col-sm-2 col-form-label">Id</label>
-        <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="idPost" value="0">
+    <div id="modal-post" class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="voltarPost()" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-post row g-3" id="cadastrar-post">
+              <div class="col-md-6">
+                <label for="idPost" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="idPost" value="0">
+                </div>
+              </div>
+              <div class="col-md-12">
+                <label for="inputTitulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="inputTitulo">
+              </div>
+              <div class="col-md-6">
+                <label for="inputCategoria" class="form-label">Categorias</label>
+                <input type="text" class="form-control" id="inputCategoria">
+              </div>
+              <div class="col-md-12">
+                <label for="inputConteudo" class="form-label">Conteúdo</label>
+                <textarea class="form-control" id="inputConteudo" rows="3"></textarea>
+              </div>
+              <div class="col-md-6">
+                <label for="inputVersao" class="col-sm-2 col-form-label">Versão</label>
+                <div class="col-sm-10">
+                  <input type="text" readonly class="form-control-plaintext" id="inputVersao" value="0">
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="button" class="btn btn-success" onclick="salvarPost()">Salvar</button>
+                <button id="btn-secundario" class="btn btn-secondary" onclick="voltarPost()">Voltar</button>
+              </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <label for="inputTitulo" class="form-label">Título</label>
-        <input type="text" class="form-control" id="inputTitulo">
-      </div>
-      <div class="col-md-6">
-        <label for="inputCategoria" class="form-label">Categorias</label>
-        <input type="text" class="form-control" id="inputCategoria">
-      </div>
-      <div class="col-md-12">
-        <label for="inputConteudo" class="form-label">Conteúdo</label>
-        <textarea class="form-control" id="inputConteudo" rows="3"></textarea>
-      </div>
-      <div class="col-md-6">
-        <label for="inputVersao" class="col-sm-2 col-form-label">Versão</label>
-        <div class="col-sm-10">
-          <input type="text" readonly class="form-control-plaintext" id="inputVersao" value="0">
-        </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" onclick="salvarPost()">Salvar</button>
-        <button class="btn btn-secondary" onclick="voltarPost()">Voltar</button>
-      </div>
+    </div>
 
     </div>
 
-    <button id='btnAdicionarPost' class="btn btn-secondary" onclick="cadastrarPost()">Adicionar</button>
-
+    <div id="div-adicionar">
+      <button class="btn btn-secondary" onclick="cadastrarPost()">✚ Adicionar</button>
+    </div>
+    
     <table class="table" id="myTable">
       <thead>
         <tr>
