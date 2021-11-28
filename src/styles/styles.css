@@ -1,9 +1,11 @@
 body {
-  margin-top: 30pt;
+  margin-top: 60pt;
 }
 
-#navbar-brand {
-  text-align: center;
+h1.titulo-pagina {
+  color: white;
+  size: 20pt;
+  margin: 0pt auto;
 }
 
 #titulo-pagina {
@@ -12,7 +14,11 @@ body {
 }
 
 #modal-post {
-  display:none;
+  display: none;
+}
+
+#modal-confirmacao {
+  display: none;
 }
 
 #div-adicionar {

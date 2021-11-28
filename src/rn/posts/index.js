@@ -45,6 +45,8 @@ function cadastrarPost() {
 
   resetarCampos();
 
+  $('#modal-title').html("Novo Post");
+
 }
 
 function atualizarPost(idPost) {
@@ -53,6 +55,8 @@ function atualizarPost(idPost) {
   $("#btnAdicionarPost").css("display", "none")
 
   $("#idPost").val(idPost);
+
+  $('#modal-title').html("Atualizar Post");
 
   $.ajax({
     type: "GET",
@@ -153,7 +157,6 @@ function salvarPost() {
 }
 
 function deletarPost(idPost) {
-
   if (!idPost)
     return
 
