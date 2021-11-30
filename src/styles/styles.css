@@ -45,3 +45,15 @@ button.btn-success {
   display: flex;
   flex-direction: row;
 }
+
+.btn-categoria{
+  margin-left: 5px;
+}
+
+ul {
+  list-style: none;
+  padding: 0px !important;
+}
+ul li::before {
+  content: "X ";
+}

@@ -64,9 +64,9 @@ function atualizarPost(idPost) {
     dataType: "json",
     success: function (response) {
       $("#inputTitulo").val(response.title);
-      $("#inputCategoria").val(response.categories);
       $("#inputConteudo").val(response.content);
       $("#inputVersao").val(response.version);
+      renderizarCaregorias(response.categories)
     },
     error: function (xhr, status) {
       console.log(xhr, status)
@@ -80,6 +80,8 @@ function voltarPost() {
   $("#modal-post").css("display", "none")
 
   $("#btnAdicionarPost").css("display", "block")
+
+  resetarCampos();
 }
 
 function salvarPost() {
@@ -89,18 +91,12 @@ function salvarPost() {
   const inputConteudo = $("#inputConteudo").val();
   let categorias = [];
 
-  for (let index = 0; index <= $("#categorias").children().length; index++) {
+  $('#listaCategorias').children().each((index, element) => {
 
-    let teste = "categoria" + index;
+    categorias.push(element.textContent)// children's element
+  });
 
-    let categoria = $(`#${teste}`).text();
-
-    if (categoria) {
-      categorias.push(categoria)
-    }
-  }
-
-  console.log(categorias);
+  console.log(categorias)
 
   if (inputTitulo === undefined || inputTitulo === "") {
     alert("Informe o Título");
@@ -211,7 +207,7 @@ function AdicionarCategoria() {
     return;
   }
 
-  var linha = $(`<li id="categoria${contadorCategoria}">${inputCategoria}</li>`);
+  var linha = $(`<li onclick={removerCategoria(categoria${contadorCategoria})} id="categoria${contadorCategoria}">${inputCategoria}</li>`);
 
   $("#listaCategorias").append(linha);
 
@@ -219,4 +215,19 @@ function AdicionarCategoria() {
 
   $("#inputCategoria").val('');
 
+}
+
+function renderizarCaregorias(categorias) {
+
+  for (let i = 0; i < categorias.length; i++) {
+
+    var linha = $(`<li onclick={removerCategoria(categoria${i})} id="categoria${i}">${categorias[i]}</li>`);
+    $("#listaCategorias").append(linha);
+    contadorCategoria++;
+  }
+
+}
+
+function removerCategoria(categoria) {
+  categoria.remove();
 }
