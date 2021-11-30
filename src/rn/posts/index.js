@@ -46,7 +46,6 @@ function cadastrarPost() {
   resetarCampos();
 
   $('#modal-title').html("Novo Post");
-
 }
 
 function atualizarPost(idPost) {
@@ -127,6 +126,7 @@ function salvarPost() {
       data: JSON.stringify(post),
       success: function (response) {
         listarPosts();
+        alert('os dados foram atualizados com sucesso!')
       },
       error: function (xhr, status) {
         console.log(xhr, status)
@@ -143,6 +143,7 @@ function salvarPost() {
       data: JSON.stringify(post),
       success: function (response) {
         listarPosts();
+        alert('os dados foram salvos com sucesso!')
       },
       error: function (xhr, status) {
         console.log(xhr, status)
@@ -159,20 +160,18 @@ function salvarPost() {
 function deletarPost(idPost) {
   if (!idPost)
     return
-
   $.ajax({
     type: "DELETE",
     url: urlApi + '/posts/' + idPost,
     dataType: "json",
     success: function (response, status) {
       listarPosts();
+      alert('Deletado com sucesso')
     },
     error: function (xhr, status) {
       console.log(xhr, status)
     },
   });
-
-
 }
 
 $(document).ready(function () {
