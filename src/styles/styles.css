@@ -41,7 +41,7 @@ button.btn-success {
   border-radius: 20pt;
 }
 
-.categoria{
+.insidecategoria{
   display: flex;
   flex-direction: row;
 }

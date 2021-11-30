@@ -86,25 +86,21 @@ function salvarPost() {
 
   const idPost = $("#idPost").val();
   const inputTitulo = $("#inputTitulo").val();
-  const inputCategoria = $("#inputCategoria").val();
   const inputConteudo = $("#inputConteudo").val();
   let categorias = [];
 
-  for (let index = 0; index <= contadorCategoria; index++) {
+  for (let index = 0; index <= $("#categorias").children().length; index++) {
 
     let teste = "categoria" + index;
-    console.log(teste)
-    let categoria = $("teste").val();
 
-    console.log("categoria", categoria)
+    let categoria = $(`#${teste}`).text();
 
-    if (categorias) {
+    if (categoria) {
       categorias.push(categoria)
     }
-
-    console.log("categorias", categorias)
-
   }
+
+  console.log(categorias);
 
   if (inputTitulo === undefined || inputTitulo === "") {
     alert("Informe o Título");
@@ -197,12 +193,13 @@ $(document).ready(function () {
 });
 
 function resetarCampos() {
-
+  $("#listaCategorias").children().remove();
   $("#idPost").val(0);
   $("#inputTitulo").val('');
   $("#inputCategoria").val('');
   $("#inputConteudo").val('');
   $("#inputVersao").val(0);
+  contadorCategoria = 0;
 }
 
 function AdicionarCategoria() {
@@ -214,9 +211,9 @@ function AdicionarCategoria() {
     return;
   }
 
-  var linha = $(`<span id="categoria${contadorCategoria}">${inputCategoria}</span>`);
+  var linha = $(`<li id="categoria${contadorCategoria}">${inputCategoria}</li>`);
 
-  $("#categorias").append(linha);
+  $("#listaCategorias").append(linha);
 
   contadorCategoria++;
 
