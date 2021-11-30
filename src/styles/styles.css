@@ -40,3 +40,8 @@ button.btn-primary {
 button.btn-success {
   border-radius: 20pt;
 }
+
+.categoria{
+  display: flex;
+  flex-direction: row;
+}

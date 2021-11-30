@@ -32,7 +32,8 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="modal-title"></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="voltarPost()" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="voltarPost()"
+              aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-post row g-3" id="cadastrar-post">
@@ -46,9 +47,12 @@
                 <label for="inputTitulo" class="form-label">Título</label>
                 <input type="text" class="form-control" id="inputTitulo">
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6 categoria">
                 <label for="inputCategoria" class="form-label">Categorias</label>
                 <input type="text" class="form-control" id="inputCategoria">
+                <button type="button" class="btn btn-success" onclick="AdicionarCategoria()">Add</button>
+              </div>
+              <div id="categorias" class="col-md-6">
               </div>
               <div class="col-md-12">
                 <label for="inputConteudo" class="form-label">Conteúdo</label>
@@ -64,17 +68,17 @@
                 <button type="button" class="btn btn-success" onclick="salvarPost()">Salvar</button>
                 <button id="btn-secundario" class="btn btn-secondary" onclick="voltarPost()">Voltar</button>
               </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
     </div>
 
     <div id="div-adicionar">
       <button class="btn btn-secondary" onclick="cadastrarPost()">✚ Adicionar</button>
     </div>
-    
+
     <table class="table" id="myTable">
       <thead>
         <tr>

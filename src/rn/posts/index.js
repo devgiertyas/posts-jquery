@@ -1,5 +1,7 @@
 const urlApi = 'https://localhost:4567';
 
+let contadorCategoria = 1
+
 function listarPosts() {
 
   $.ajax({
@@ -19,7 +21,6 @@ function construirTabela(posts) {
   $("#myTable tbody").remove();
 
   posts.forEach(post => {
-    console.log(post)
     var linha = $(`<tr ${posts.id}>`);
     var coluna = "";
 
@@ -87,13 +88,30 @@ function salvarPost() {
   const inputTitulo = $("#inputTitulo").val();
   const inputCategoria = $("#inputCategoria").val();
   const inputConteudo = $("#inputConteudo").val();
+  let categorias = [];
+
+  for (let index = 0; index <= contadorCategoria; index++) {
+
+    let teste = "categoria" + index;
+    console.log(teste)
+    let categoria = $("teste").val();
+
+    console.log("categoria", categoria)
+
+    if (categorias) {
+      categorias.push(categoria)
+    }
+
+    console.log("categorias", categorias)
+
+  }
 
   if (inputTitulo === undefined || inputTitulo === "") {
     alert("Informe o Título");
     return;
   }
 
-  if (inputCategoria === undefined || inputCategoria === "") {
+  if (categorias.length <= 0) {
     alert("Informe a Categoria");
     return;
   }
@@ -106,7 +124,7 @@ function salvarPost() {
 
   var post = {
     title: inputTitulo,
-    categories: ["#feliz", "#folga"],
+    categories: categorias,
     content: inputConteudo,
   }
 
@@ -185,4 +203,23 @@ function resetarCampos() {
   $("#inputCategoria").val('');
   $("#inputConteudo").val('');
   $("#inputVersao").val(0);
+}
+
+function AdicionarCategoria() {
+
+  const inputCategoria = $("#inputCategoria").val();
+
+  if (inputCategoria === undefined || inputCategoria === "") {
+    alert("Informe a Categoria");
+    return;
+  }
+
+  var linha = $(`<span id="categoria${contadorCategoria}">${inputCategoria}</span>`);
+
+  $("#categorias").append(linha);
+
+  contadorCategoria++;
+
+  $("#inputCategoria").val('');
+
 }
