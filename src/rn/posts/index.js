@@ -10,7 +10,7 @@ function listarPosts() {
     success: function (response) {
       construirTabela(response);
     },
-    error: function (xhr, status) {
+    error: function () {
       alert("error");
     }
   });
@@ -134,9 +134,9 @@ function salvarPost() {
       url: urlApi + '/posts/' + idPost,
       dataType: "json",
       data: JSON.stringify(post),
-      success: function (response) {
+      success: function () {
         listarPosts();
-        alert('os dados foram atualizados com sucesso!')
+        alert('Os dados foram atualizados com sucesso!')
       },
       error: function (xhr, status) {
         console.log(xhr, status)
@@ -151,9 +151,9 @@ function salvarPost() {
       url: urlApi + '/posts',
       dataType: "json",
       data: JSON.stringify(post),
-      success: function (response) {
+      success: function () {
         listarPosts();
-        alert('os dados foram salvos com sucesso!')
+        alert('Os dados foram salvos com sucesso!')
       },
       error: function (xhr, status) {
         console.log(xhr, status)
@@ -174,7 +174,7 @@ function deletarPost(idPost) {
     type: "DELETE",
     url: urlApi + '/posts/' + idPost,
     dataType: "json",
-    success: function (response, status) {
+    success: function () {
       listarPosts();
       alert('Deletado com sucesso')
     },
